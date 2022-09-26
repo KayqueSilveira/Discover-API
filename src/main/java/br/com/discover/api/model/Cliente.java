@@ -2,7 +2,10 @@ package br.com.discover.api.model;
 
 import lombok.Data;
 
+import javax.persistence.Entity;
+
 @Data
+@Entity
 public class Cliente {
 
     private Long id;
