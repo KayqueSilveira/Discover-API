@@ -18,10 +18,19 @@ Ao subir pode-se acessar:
 ```
 Para verificar todos os clientes:
 http://localhost:8080/api/v1/buscar/cliente
+
 Para verificar cliente expecifico digitando seu id:
 http://localhost:8080/api/v1/buscar/cliente/<id do cliente>
+
+Para alterar as propriedados do cliente expecifico digitando o id do Cliente e o id do Cartao:
+localhost:8080/api/v1/cliente/update?idCliente=<valor>&idCartao=<valor>
+
+Para deletar um cliente:
+localhost:8080/api/v1/cliente/delete?idCliente=<valor>
+
 Para verificar a lista de cartoes e suas transacoes com cliente:
 http//localhost:8080/api/v1/buscar/cartao
+
 Para verificar um cartao expecifico e suas transacoes com o cliente:
 http//localhost:8080/api/v1/buscar/cartao/<id do cartao>
 ```
