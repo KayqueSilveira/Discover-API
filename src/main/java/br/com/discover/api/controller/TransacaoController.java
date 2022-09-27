@@ -12,14 +12,11 @@ import org.springframework.web.bind.annotation.*;
 public class TransacaoController {
 
     @Autowired
-    private TransacaoRepository transacaoRepository;
-
-    @Autowired
     private TransacaoService transacaoService;
 
-    @RequestMapping(value = "/criar", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)
+    @PostMapping("/criar")
     public Transacao save(@RequestBody Transacao transacao, @RequestParam Long idCartao, @RequestParam int senha){
         transacaoService.execute(transacao, idCartao, senha);
-        return null;
+        return transacao;
     }
 }

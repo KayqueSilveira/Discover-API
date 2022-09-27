@@ -1,5 +1,6 @@
 package br.com.discover.api.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.sun.istack.NotNull;
 import lombok.*;
@@ -25,7 +26,7 @@ public class Cliente {
     private double salario;
 
     @OneToOne(mappedBy = "cliente", orphanRemoval = true, cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    @JsonManagedReference
+    @JsonBackReference
     private Cartao cartao;
 
 }
