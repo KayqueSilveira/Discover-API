@@ -7,7 +7,7 @@ Tecnologias:
 * SpringBoot
 * JPA e SpringData
 * Maven
-* Bando H2
+* Banco H2
 
 ## Executar a aplicação
 
