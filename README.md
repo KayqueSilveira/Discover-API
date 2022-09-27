@@ -5,7 +5,8 @@ API de cadastro de clientes com vinculação de um cartão de crédito.
 Tecnologias:
 
 * SpringBoot
-* JPA e SpringData
+* JPA
+* Lombok
 * Maven
 * Banco H2
 
