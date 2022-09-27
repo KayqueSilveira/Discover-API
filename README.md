@@ -17,11 +17,14 @@ Para rodar a aplicação na sua IDE, execute a classe main ApiApplication.
 Ao subir pode-se acessar:
 
 ```
+Para cadastrar um novo cliente:
+http://localhost:8080/api/v1/cliente/criar
+
 Para verificar todos os clientes:
-http://localhost:8080/api/v1/buscar/cliente
+http://localhost:8080/api/v1/cliente/buscar
 
 Para verificar cliente expecifico digitando seu id:
-http://localhost:8080/api/v1/buscar/cliente/<id do cliente>
+http://localhost:8080/api/v1/cliente/buscar/<id do cliente>
 
 Para alterar as propriedados do cliente expecifico digitando o id do Cliente e o id do Cartao:
 localhost:8080/api/v1/cliente/update?idCliente=<valor>&idCartao=<valor>
@@ -29,11 +32,14 @@ localhost:8080/api/v1/cliente/update?idCliente=<valor>&idCartao=<valor>
 Para deletar um cliente:
 localhost:8080/api/v1/cliente/delete?idCliente=<valor>
 
+Para cadastrar um novo cartao deve colocar como parametro o id do Cliente para vincular:
+localhost:8080/api/v1/cartao/criar?idCliente=<valor>
+
 Para verificar a lista de cartoes e suas transacoes com cliente:
-http//localhost:8080/api/v1/buscar/cartao
+localhost:8080/api/v1/cartao/buscar
 
 Para verificar um cartao expecifico e suas transacoes com o cliente:
-http//localhost:8080/api/v1/buscar/cartao/<id do cartao>
+localhost:8080/api/v1/cartao/buscar/<id do cartao>
 ```
 
 ## Banco de Dados
