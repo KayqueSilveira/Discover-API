@@ -18,13 +18,13 @@ Ao subir pode-se acessar:
 
 ```
 Para cadastrar um novo cliente:
-http://localhost:8080/api/v1/cliente/criar
+localhost:8080/api/v1/cliente/criar
 
 Para verificar todos os clientes:
-http://localhost:8080/api/v1/cliente/buscar
+localhost:8080/api/v1/cliente/buscar
 
 Para verificar cliente expecifico digitando seu id:
-http://localhost:8080/api/v1/cliente/buscar/<id do cliente>
+localhost:8080/api/v1/cliente/buscar/<id do cliente>
 
 Para alterar as propriedados do cliente expecifico digitando o id do Cliente e o id do Cartao:
 localhost:8080/api/v1/cliente/update?idCliente=<valor>&idCartao=<valor>
