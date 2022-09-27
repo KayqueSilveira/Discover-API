@@ -25,12 +25,14 @@ public class Cartao {
     private double limite;
     @NotNull
     private int senha;
+    private double fatura;
     @NotNull
     private int numeroCartao;
 
     @OneToOne
     @JoinColumn(name="cliente_id", referencedColumnName = "cliente_id")
-    @JsonBackReference
+    @JsonManagedReference
+    @NotNull
     private Cliente cliente;
 
     @OneToMany(mappedBy = "cartao")

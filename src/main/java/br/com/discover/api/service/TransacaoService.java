@@ -49,6 +49,7 @@ public class TransacaoService {
 
         if(cartao.getLimite() >= transacao.getValor()){
             var result = (cartao.getLimite() - transacao.getValor());
+            cartao.setFatura(cartao.getFatura()+(-transacao.getValor()));
             cartao.setLimite(result);
 
             return true;

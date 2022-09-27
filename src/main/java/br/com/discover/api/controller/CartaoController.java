@@ -2,6 +2,7 @@ package br.com.discover.api.controller;
 
 import br.com.discover.api.model.Cartao;
 import br.com.discover.api.repository.CartaoRepository;
+import br.com.discover.api.service.CartaoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -14,12 +15,12 @@ public class CartaoController {
     @Autowired
     private CartaoRepository cartaoRepository;
 
+    @Autowired
+    private CartaoService cartaoService;
+
     @PostMapping("criar")
-    public Cartao save(@RequestBody Cartao cartao){
-        if(cartaoRepository.existsByNumeroCartao(cartao.getNumeroCartao())){
-            throw new RuntimeException("Cartao já está cadastrado");
-        }
-        cartaoRepository.save(cartao);
+    public Cartao save(@RequestBody Cartao cartao, @RequestParam Long idCliente){
+        cartaoService.execute(cartao, idCliente);
         return cartao;
     }
 
