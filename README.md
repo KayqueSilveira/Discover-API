@@ -29,9 +29,6 @@ localhost:8080/api/v1/cliente/buscar/<id do cliente>
 Para alterar as propriedados do cliente expecifico digitando o id do Cliente e o id do Cartao:
 localhost:8080/api/v1/cliente/update?idCliente=<valor>&idCartao=<valor>
 
-Para deletar um cliente:
-localhost:8080/api/v1/cliente/delete?idCliente=<valor>
-
 Para cadastrar um novo cartao deve colocar como parametro o id do Cliente para vincular:
 localhost:8080/api/v1/cartao/criar?idCliente=<valor>
 
@@ -40,6 +37,10 @@ localhost:8080/api/v1/cartao/buscar
 
 Para verificar um cartao expecifico e suas transacoes com o cliente:
 localhost:8080/api/v1/cartao/buscar/<id do cartao>
+
+Para deletar um cliente é necessário também excluir o cartao vinculado e as transações:
+localhost:8080/api/v1/cartao/deletar?idCartao=<valor>
+>Obs: Foi colocado idCartao devido o cartao ja possuir os dados do cliente e da transação
 ```
 
 ## Banco de Dados
