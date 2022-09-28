@@ -14,7 +14,7 @@ public class TransacaoController {
 
     @PostMapping("/criar")
     public Transacao save(@RequestBody Transacao transacao, @RequestParam Long idCartao, @RequestParam int senha){
-        transacaoService.execute(transacao, idCartao, senha);
+        transacaoService.verificaTransacao(transacao, idCartao, senha);
         return transacao;
     }
 }

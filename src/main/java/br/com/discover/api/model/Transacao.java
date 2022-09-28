@@ -2,9 +2,7 @@ package br.com.discover.api.model;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.sun.istack.NotNull;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
@@ -13,6 +11,8 @@ import java.time.LocalDateTime;
 @Setter
 @Entity
 @AllArgsConstructor
+@NoArgsConstructor
+@Builder
 public class Transacao {
 
     @Id
@@ -30,7 +30,5 @@ public class Transacao {
     @JsonBackReference
     private Cartao cartao;
 
-    public Transacao(){
-        super();
-    }
+
 }

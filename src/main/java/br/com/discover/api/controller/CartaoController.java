@@ -14,37 +14,27 @@ import java.util.List;
 public class CartaoController {
 
     @Autowired
-    private CartaoRepository cartaoRepository;
-
-    @Autowired
     private CartaoService cartaoService;
 
     @PostMapping("criar")
     public Cartao save(@RequestBody Cartao cartao, @RequestParam Long idCliente){
-        cartaoService.execute(cartao, idCliente);
+        cartaoService.save(cartao, idCliente);
         return cartao;
     }
 
     @GetMapping("buscar")
     public List<Cartao> getAllCartao(){
-        return cartaoRepository.findAll();
+        return cartaoService.findAll();
     }
 
     @GetMapping("buscar/{id}")
     public Cartao getCartao(@PathVariable Long id){
-        return cartaoRepository.findById(id)
-                .orElseThrow(()-> new RuntimeException("Cliente nao existe"));
-    }
-
-    @DeleteMapping("deletar/{idCartao}/{idTransacao}")
-    @Transactional
-    public void deletarCartao(@PathVariable Long idCartao, @PathVariable Long idTransacao){
-        cartaoRepository.deleteById(idCartao);
+        return cartaoService.findById(id);
     }
 
     @DeleteMapping("deletar/{idCartao}")
     @Transactional
     public void deletarCartaoPorId(@PathVariable Long idCartao){
-        cartaoRepository.deleteById(idCartao);
+        cartaoService.delete(idCartao);
     }
 }
