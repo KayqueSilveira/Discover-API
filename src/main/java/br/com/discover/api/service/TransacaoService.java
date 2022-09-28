@@ -32,10 +32,10 @@ public class TransacaoService {
         transacao.setHora(LocalDateTime.now());
         transacao.setNomeCliente(cartao.getCliente().getNome());
         if(verificaLimiteCartao(transacao, id) && verificaSenhaCartao(cartao, senha)){
+            transacaoRepository.save(transacao);
             List<Transacao> t = new ArrayList<>();
             t.add(transacao);
             cartao.setTransacao(t);
-            transacaoRepository.save(transacao);
             cartaoRepository.save(cartao);
 
         }else{

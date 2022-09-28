@@ -6,6 +6,7 @@ import br.com.discover.api.service.CartaoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import javax.transaction.Transactional;
 import java.util.List;
 
 @RestController
@@ -35,9 +36,15 @@ public class CartaoController {
                 .orElseThrow(()-> new RuntimeException("Cliente nao existe"));
     }
 
-    @DeleteMapping("deletar/{id}")
-    public void deletarCartao(@PathVariable Long id){
-        var cartao = cartaoRepository.findById(id).orElseThrow();
-        cartaoRepository.delete(cartao);
+    @DeleteMapping("deletar/{idCartao}/{idTransacao}")
+    @Transactional
+    public void deletarCartao(@PathVariable Long idCartao, @PathVariable Long idTransacao){
+        cartaoRepository.deleteById(idCartao);
+    }
+
+    @DeleteMapping("deletar/{idCartao}")
+    @Transactional
+    public void deletarCartaoPorId(@PathVariable Long idCartao){
+        cartaoRepository.deleteById(idCartao);
     }
 }
