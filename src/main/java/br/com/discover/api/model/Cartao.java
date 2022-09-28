@@ -1,21 +1,22 @@
 package br.com.discover.api.model;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.sun.istack.NotNull;
 import lombok.*;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.List;
 
 @Getter
 @Setter
 @Entity(name = "cartao")
 @NoArgsConstructor
-public class Cartao {
+public class Cartao implements Serializable {
+
+    private static final long serialVersionUID = -8259395041807220424L;
 
     @Id
-    @Column(name="cartao_id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
@@ -29,16 +30,11 @@ public class Cartao {
     @NotNull
     private int numeroCartao;
 
-    @OneToOne
-    @JoinColumn(name="cliente_id", referencedColumnName = "cliente_id")
-    @JsonManagedReference
-    @NotNull
+    @ManyToOne(cascade = CascadeType.REMOVE)
     private Cliente cliente;
 
-    @OneToMany(mappedBy = "cartao")
+    @OneToMany(mappedBy = "cartao", cascade = CascadeType.REMOVE)
     @JsonManagedReference
     private List<Transacao> transacao;
-
-
 
 }

@@ -40,12 +40,13 @@ public class ClienteController {
     }
 
     @DeleteMapping("delete")
-    public void deleteCliente(@RequestParam Long id){
-        clienteRepository.deleteByCartaoId(id);
+    public void deleteCliente(@RequestParam Long idCliente){
+        var cliente = clienteRepository.findById(idCliente).orElseThrow();
+        clienteRepository.delete(cliente);
     }
 
     @PutMapping("update")
-    public void updateCliente(@RequestBody Cliente cliente, @RequestParam Long idCliente, @RequestParam(required = false) Long idCartao){
-        clienteService.verificarCliente(cliente, idCliente, idCartao);
+    public void updateCliente(@RequestBody Cliente cliente, @RequestParam Long idCliente){
+        clienteService.verificarCliente(cliente, idCliente);
     }
 }

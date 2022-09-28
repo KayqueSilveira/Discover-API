@@ -1,10 +1,8 @@
 package br.com.discover.api.controller;
 
 import br.com.discover.api.model.Transacao;
-import br.com.discover.api.repository.TransacaoRepository;
 import br.com.discover.api.service.TransacaoService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
 @RestController

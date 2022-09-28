@@ -27,7 +27,6 @@ public class Transacao {
     private String nomeCliente;
 
     @ManyToOne
-    @JoinColumn(name="cartao_id", referencedColumnName = "cartao_id")
     @JsonBackReference
     private Cartao cartao;
 

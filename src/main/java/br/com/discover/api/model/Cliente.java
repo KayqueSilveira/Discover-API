@@ -1,20 +1,20 @@
 package br.com.discover.api.model;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.sun.istack.NotNull;
 import lombok.*;
 
 import javax.persistence.*;
+import java.io.Serializable;
 
 @Getter
 @Setter
 @Entity(name = "cliente")
 @NoArgsConstructor
-public class Cliente {
+public class Cliente implements Serializable {
+
+    private static final long serialVersionUID = -4008205208027610432L;
 
     @Id
-    @Column(name="cliente_id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
@@ -24,9 +24,5 @@ public class Cliente {
     private String nome;
     @NotNull
     private double salario;
-
-    @OneToOne(mappedBy = "cliente", orphanRemoval = true, cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    @JsonBackReference
-    private Cartao cartao;
 
 }

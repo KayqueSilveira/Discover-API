@@ -24,7 +24,6 @@ public class CartaoService {
             throw new RuntimeException("Cartao já está cadastrado");
         }
 
-        cartaoRepository.save(cartao);
     }
 
     private void validaLimite(final Cartao cartao, final Long idCliente){
@@ -40,7 +39,5 @@ public class CartaoService {
         }
         cartao.setCliente(cliente);
         cartaoRepository.save(cartao);
-        cliente.setCartao(cartao);
-        clienteRepository.save(cliente);
     }
 }
