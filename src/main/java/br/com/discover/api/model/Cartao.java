@@ -12,6 +12,8 @@ import java.util.List;
 @Setter
 @Entity(name = "cartao")
 @NoArgsConstructor
+@AllArgsConstructor
+@Builder
 public class Cartao implements Serializable {
 
     private static final long serialVersionUID = -8259395041807220424L;

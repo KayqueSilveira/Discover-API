@@ -9,6 +9,7 @@ import java.io.Serializable;
 @Getter
 @Setter
 @Entity(name = "cliente")
+@AllArgsConstructor
 @NoArgsConstructor
 public class Cliente implements Serializable {
 
@@ -24,5 +25,6 @@ public class Cliente implements Serializable {
     private String nome;
     @NotNull
     private double salario;
+
 
 }

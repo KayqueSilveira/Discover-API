@@ -14,39 +14,25 @@ import java.util.List;
 public class ClienteController {
 
     @Autowired
-    private ClienteRepository clienteRepository;
-
-    @Autowired
-    private CartaoRepository cartaoRepository;
-
-    @Autowired
     private ClienteService clienteService;
 
     @PostMapping("/criar")
     public Cliente save(@RequestBody Cliente cliente){
-        clienteService.execute(cliente);
-        return cliente;
+        return clienteService.save(cliente);
     }
 
     @GetMapping("buscar")
     public List<Cliente> getAllCliente(){
-        return clienteRepository.findAll();
+        return clienteService.findAll();
     }
 
     @GetMapping("buscar/{id}")
     public Cliente getCliente(@PathVariable Long id){
-        return clienteRepository.findById(id)
-                .orElseThrow(()-> new RuntimeException("Cliente nao existe"));
-    }
-
-    @DeleteMapping("delete")
-    public void deleteCliente(@RequestParam Long idCliente){
-        var cliente = clienteRepository.findById(idCliente).orElseThrow();
-        clienteRepository.delete(cliente);
+        return clienteService.findById(id);
     }
 
     @PutMapping("update")
-    public void updateCliente(@RequestBody Cliente cliente, @RequestParam Long idCliente){
-        clienteService.verificarCliente(cliente, idCliente);
+    public Cliente updateCliente(@RequestBody Cliente cliente, @RequestParam Long idCliente){
+        return clienteService.updateCliente(cliente, idCliente);
     }
 }
